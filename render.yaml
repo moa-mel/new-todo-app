@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: new-todo-app
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview # or "vite preview"
+    staticPublishPath: dist
+    rewrites:
+      - source: /*
+        destination: /index.html
