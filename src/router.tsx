@@ -6,8 +6,8 @@ import SignUp from './pages/SignUp';
 import Profile from './pages/Profile';
 
 const rootRoute = createRootRoute({
-  component: Root,
-  head: () => ({
+  head: () => {
+    return {
     meta: [
       { title: 'My ToDo App' },
       { name: 'description', content: 'A simple todo app with user profiles' },
@@ -19,7 +19,9 @@ const rootRoute = createRootRoute({
       { rel: 'icon', href: '/favicon.ico' },
     ],
     scripts: [],
-  }),
+};
+  },
+  component: Root,
 });
 
 const routeTree = rootRoute.addChildren([
