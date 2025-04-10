@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from '@tanstack/react-router';
+import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Login with', email, password);
-    // Simulate successful login - for now, we'll use email as a pseudo-username
-    const username = email.split('@')[0]; // Simple way to derive a username
+    const username = email.split('@')[0]; // Derive username from email
+    login(username); // Set authenticated state
     navigate({ to: `/profile/${username}` });
   };
 

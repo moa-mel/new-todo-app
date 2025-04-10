@@ -10,5 +10,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173, // or whatever port you want
+    allowedHosts: ['new-todo-app-ql7o.onrender.com']
   },
 })

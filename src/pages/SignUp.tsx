@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { useNavigate } from '@tanstack/react-router';
+import { useAuth } from '../context/AuthContext';
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('SignUp', username, email, password);
-    // Simulate successful signup and redirect to profile
+    login(username); // Set authenticated state
     navigate({ to: `/profile/${username}` });
   };
 
